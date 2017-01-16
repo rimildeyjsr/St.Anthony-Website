@@ -63,16 +63,37 @@
             <div class="group">
                 <div class="left">
                     <img src="images/the_principal.jpg" alt="school principal" class="admin-pic">
-                    <img src="images/mrs-cooke.png" alt="school vice principal" class="admin-pic">
+                    <!--<img src="images/mrs-cooke.png" alt="school vice principal" class="admin-pic">-->
                 </div>
                 <div class="right">
                     <p class="text">
-
+                        "Education is a simple yet a serious process. It is a process of making a human being into 'being human'.
+                        Stress at our institution is on this aspect. <br>
+                        I invite you to join us and make our country proud.
+                        <br><br>-The Principal"
                     </p>
                 </div>
 
             </div>
 
+        </div>
+
+        <div class="section" id="section3">
+            
+            <div class="group">
+                <div class="left">
+                    <img src="images/mrs-cooke.png" alt="school vice principal" class="admin-pic">
+                </div>
+                <div class="right">
+                    <p class="text">
+                        "Education is a simple yet a serious process. It is a process of making a human being into 'being human'.
+                        Stress at our institution is on this aspect. <br>
+                        I invite you to join us and make our country proud.
+                        <br><br>-The Principal"
+                    </p>
+                </div>
+
+            </div>
         </div>
 
     </div>
@@ -118,9 +139,10 @@
             $(document).ready(function(){
                 $('#fullpage').fullpage({
                     //names for the anchors of the pages
-                    anchors:['Page1','Page2','lastpage'],
+                    anchors:['Page1','Page2','Page3','lastpage'],
                     navigation: true,
                     navigationPosition: 'right',
+                    fixedElements: '.offscreen-logo',
 
                     afterLoad : function(anchorLink,index) {
                         //after loading a section, perform these functions
@@ -139,7 +161,7 @@
                             }
                             $('.school-name').addClass('come-in');
                                 slideEffect();
-                            
+
 
                                 //$('.add_ring').addClass('ring');
                                 //('.add_ring2').addClass('ring ring2');
@@ -147,10 +169,12 @@
                             $.fn.fullpage.setKeyboardScrolling(false, 'up');
                         }
 
-                        if(index == 3 || anchorLink == 'lastpage'){
+                        if(index == 3 || anchorLink == 'Page3'){
                             $('#fp-nav').show();
                             $('.offscreen-logo').addClass('come-in-logo').one(animationEnd,function(){
-                                swap_testimonial();
+                                $('.right .text').addClass('animated fadeInUp');
+                                $('.left .admin-pic').addClass('animated fadeInDown');
+                                //swap();
                             });
                             $.fn.fullpage.setAllowScrolling(true,'up');
                             $.fn.fullpage.setKeyboardScrolling(true, 'up');
@@ -169,38 +193,38 @@
 
             });
 
-            function swap_testimonial(){
-                var arr = [];
-                s1 = "\"Education is a simple yet a serious process." +
-                        " It is a process of making a human being into 'being human'." +
-                        " Stress at our institution is on this aspect." +
-                        "I invite you to join us and make our country proud.\"" +
-                        "\n\n  -The Principal";
+            /*var arr = [];
+            s1 = "\"Education is a simple yet a serious process." +
+                    " It is a process of making a human being into 'being human'." +
+                    " Stress at our institution is on this aspect." +
+                    "I invite you to join us and make our country proud.\"" +
+                    "\n\n  -The Principal";
 
-                s2 = "\"We are all Indians firstly and lastly\" " +
-                        "Whatever anyone else might say, we need to uphold this God-given identity " +
-                        "through our actions, thoughts and what we might say." +
-                        " Long live the Indian Republic.\"" +
-                        "\n\n -The Vice Principal ";
+            s2 = "\"We are all Indians firstly and lastly\" " +
+                    "Whatever anyone else might say, we need to uphold this God-given identity " +
+                    "through our actions, thoughts and what we might say." +
+                    " Long live the Indian Republic.\"" +
+                    "\n\n -The Vice Principal ";
 
-                arr.push(s1);
-                arr.push(s2);
+            arr.push(s1);
+            arr.push(s2);
+            var length = arr.length;
+            var imgs =  document.getElementsByClassName('admin-pic');
+            console.log(imgs);
+            var i=0;
 
-                var length = arr.length;
-                var i=0;
                 function swap() {
                     if (i == length) {
                         i = 0;
                     }
 
-                    $('.right .text').html(arr[i]).addClass('animated fadeInUp');
+                    /*$('.right .text').html(arr[i]).addClass('animated fadeInUp').delay(4000).one(animationEnd,function(){
+                        $('.right .text').html(arr[i]).addClass('animated fadeOutUp');
+                    });
+
                     i++;
-
-                }
-
-                window.setInterval(swap,4000);
-            }
-
+                    setTimeout(swap,8000);
+                }*/
 
         </script>
 
